@@ -1,4 +1,24 @@
-gff_file = "watermelon.gff"
+#! /usr/bin/env python3
+
+import argparse
+
+# add positional arguments, i.e., the required input
+
+parser.add_argument( "-gf", "--gff", help="the name of the gff file" )
+# when running the script, ./parseGff.py -gf watermelon.gff
+parser.add_argument( "-fa", "--fasta", help="the name of the fasta file" )
+# when running the script, ./parseGFF.py -fa watermelon.fsa
+
+#parser.add_argument( "go", "--output", help="the name of the written output file" )?
+    # when running the script, ./parseGff.py -go gff_ouput.txt
+
+#parser.add_argument( "ss", "--substring_txt", help="the name of the written substring file" )?
+    # when running the script, ./parseGFF.py -ss substring
+
+# parse the command line arguments
+args = parser.parse_args()
+
+gff_file = args.gff
 gff = open(gff_file, "r")
 gff_output = open("gff_output.txt", "w")
 
@@ -12,7 +32,7 @@ for line in gff:
     
     gff_output.write(str(start) + "\t" + str(stop) + "\n")
 
-fasta_file = open("watermelon.fsa").read()
+fasta_file = open(args.fasta).read()
 fasta_output = open("gff_output.txt")
 substring = open("substring.txt", "w")
 
