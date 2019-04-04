@@ -2,11 +2,13 @@
 
 import argparse
 
+parser = argparse.ArgumentParser(description = "")
+
 # add positional arguments, i.e., the required input
 
-parser.add_argument( "-gf", "--gff", help="the name of the gff file" )
+parser.add_argument( "-gf", "--gff", help="the name of the gff file", default="watermelon.gff")
 # when running the script, ./parseGff.py -gf watermelon.gff
-parser.add_argument( "-fa", "--fasta", help="the name of the fasta file" )
+parser.add_argument( "-fa", "--fasta", help="the name of the fasta file", default="watermelon.fsa")
 # when running the script, ./parseGFF.py -fa watermelon.fsa
 
 #parser.add_argument( "go", "--output", help="the name of the written output file" )?
@@ -43,3 +45,5 @@ for lines in fasta_output:
     substring_sequence = fasta[start:stop]
     print(substring_sequence)
     
+
+    # ./parseGFF.py -gf watermelon.gff -fa watermelon.fsa
